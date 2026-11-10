@@ -4,7 +4,7 @@ Terraform para que un workload fuera de AWS (on-prem, VM, otro cloud) use S3 con
 credenciales temporales de STS, autenticándose con un certificado X.509 en vez de claves estáticas.
 
 El script que consume esto desde fuera de AWS vive en el utility belt:
-`~/Developer/go/proyectos/kind-gitops-utility-belt/scripts/06-aws-roles-anywhere.sh`
+[`kind-gitops-utility-belt/scripts/06-aws-roles-anywhere.sh`](https://github.com/slashispy/kind-gitops-utility-belt/blob/main/scripts/06-aws-roles-anywhere.sh)
 
 ## Arquitectura
 
@@ -40,8 +40,8 @@ Diagrama completo del flujo de autenticación (6 pasos, desde el certificado has
 cp terraform.tfvars.example terraform.tfvars   # editar bucket y CNs
 terraform init && terraform apply
 
-# 3. Desde el workload externo (utility belt)
-cd ~/Developer/go/proyectos/kind-gitops-utility-belt
+# 3. Desde el workload externo (clona https://github.com/slashispy/kind-gitops-utility-belt)
+cd kind-gitops-utility-belt
 ./scripts/06-aws-roles-anywhere.sh sts get-caller-identity   # verifica el rol asumido
 ./scripts/06-aws-roles-anywhere.sh s3 cp ./backup.tar.gz s3://mi-bucket-de-backups/backups/
 ```
