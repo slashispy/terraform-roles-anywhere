@@ -1,0 +1,6 @@
+region                  = "us-east-1"
+name_prefix             = "onprem-backup"
+ca_certificate_pem_path = "./pki/ca.crt"
+allowed_cert_cns        = ["onprem-backup-01"]
+bucket_name             = "mi-bucket-de-backups"
+bucket_prefix           = "backups/"
